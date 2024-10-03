@@ -1,0 +1,118 @@
+<div class="relative">
+    <!-- Menú de escritorio -->
+    <nav class="flex justify-between items-center p-4 bg-Dykan-pri-500 text-white">
+        <!-- Logo -->
+        <div class="text-lg font-bold">
+            <img src="Logo.png" alt="Logo" class="h-8 rotate-6">
+        </div>
+
+        <!-- Menú principal en desktop -->
+        <ul class="hidden md:flex space-x-8">
+            <li><a href="#" class="block hover:text-teal-400">Inicio</a></li>
+            <li><a href="#" class="block hover:text-teal-400">Biblioteca</a></li>
+            <li><a href="#" class="block hover:text-teal-400">Productos</a></li>
+
+        </ul>
+
+        <div class="flex items-center space-x-2">
+            <!-- Barra de búsqueda en desktop -->
+            <input id="search-bar" type="text" placeholder="Buscar..."
+                [ngClass]="{'opacity-100 translate-y-0 visible': isDesktopView(), 'opacity-0 translate-y-2 invisible': !isDesktopView()}"
+                class="md:opacity-100 w-48 p-2 rounded bg-gray-700 text-white focus:outline-none transition-all duration-300 ease-in-out opacity-0 invisible transform translate-y-2" />
+            <!-- Botónes -->
+            <div class="relative flex">
+                <button id="menu-button" class="md:hidden focus:outline-none" (click)="toggleMenu()" type="button"
+                    data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
+                    aria-controls="drawer-navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-10">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+                <button id="profile-button" class="px-1 flex items-center space-x-2 focus:outline-none"
+                    (click)="toggleProfileMenu()">
+                    <img src="profile-circle.png" alt="Perfil" class="h-10 w-10 rounded-full">
+                </button>
+                <!-- Menú desplegable de perfil -->
+                <ul [ngClass]="{'opacity-100 translate-y-0 visible': isProfileMenuOpen(), 'opacity-0 -translate-y-2 invisible': !isProfileMenuOpen()}"
+                    id="profile-menu"
+                    class="z-50 absolute right-0 mt-12 w-48 bg-Dykan-pri-500 rounded-md shadow-lg py-2 text-white transition-all duration-300  ease-in-out opacity-0 invisible transform -translate-y-2">
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Perfil</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Configuración</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Favoritos</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Cerrar sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Barra de búsqueda en móvil -->
+    <div class="md:hidden mx-4 p-2">
+        <input type="text" placeholder="Buscar..." id="mobile-search-bar" type="text" placeholder="Buscar..."
+            [ngClass]="{'opacity-100 translate-y-0 visible': isMobileView(), 'opacity-0 translate-y-2 invisible': !isMobileView()}"
+            class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none transition-all duration-300 ease-in-out opacity-0 invisible transform translate-y-2" />
+    </div>
+
+    <!-- Menú desplegable en móvil -->
+
+    <!-- drawer component -->
+    <div id="drawer-navigation"
+        [ngClass]="{'opacity-100 translate-x-0': isMenuOpen(), 'opacity-0 -translate-x-full': !isMenuOpen()}"
+        class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto w-64 dark:bg-Dykan-Fondo-500 transition-all duration-300 ease-in-out opacity-0 -translate-x-full"
+        tabindex="-1" aria-labelledby="drawer-navigation-label">
+        <h5 id="drawer-navigation-label" class="text-base font-semibold  uppercase dark:text-gray-400">Menu
+        </h5>
+        <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation"
+            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+            <span class="sr-only">Close menu</span>
+        </button>
+        <div class="py-4 overflow-y-auto">
+            <ul class="space-y-2 font-medium">
+                <li>
+                    <a href="#"
+                        class="flex items-center p-2 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-Dykan-pri-700 group">
+                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center p-2 dark:text-white hover:bg-gray-100 dark:hover:bg-Dykan-pri-700 group">
+                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                            aria-hidden="true" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 19V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v13H7a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M9 3v14m7 0v4" />
+                        </svg>
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Librery</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex items-center p-2 dark:text-white hover:bg-gray-100 dark:hover:bg-Dykan-pri-700 group">
+                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                            viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m17 21-5-4-5 4V3.889a.92.92 0 0 1 .244-.629.808.808 0 0 1 .59-.26h8.333a.81.81 0 0 1 .589.26.92.92 0 0 1 .244.63V21Z" />
+                        </svg>
+
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Favorite</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
