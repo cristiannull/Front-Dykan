@@ -7,82 +7,99 @@
     <title>Document</title>
 </head>
 
-<body class="dark:bg-Dykan-Fondo-500 min-h-screen">
+<body class="dark:bg-Dykan-Fondo-500">
     <app-nav-bar />
-    <div id="default-carousel" class="relative md:w-2/3 sm:w-full mx-auto md:mt-6" data-carousel="static">
-        <!-- Carousel wrapper -->
-        <div class="relative h-48 overflow-hidden rounded-lg lg:h[33rem] sm:h-96">
-            <!-- Item 1 -->
-            <div class="hidden duration-1000 ease-in-out" data-carousel-item>
-                <img src="all-mito.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="...">
-            </div>
-            <!-- Item 2 -->
-            <div class="hidden duration-1000 ease-in-out" data-carousel-item>
-                <img src="deadpool.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="...">
-            </div>
-            <!-- Item 3 -->
-            <div class="hidden duration-1000 ease-in-out" data-carousel-item>
-                <img src="picture-in-picture.jpg"
-                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <!-- Item 4 -->
-            <div class="hidden duration-1000 ease-in-out" data-carousel-item>
-                <img src="red-mask.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="...">
-            </div>
-            <!-- Item 5 -->
-            <div class="hidden duration-1000 ease-in-out" data-carousel-item>
-                <img src="luffy.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="...">
-            </div>
-        </div>
-        <!-- Slider controls -->
-        <button type="button"
-            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-prev>
-            <span
-                class="inline-flex items-center justify-center w-10 h-10 rounded-full dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 group-focus:ring-4 dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-4 h-4 text-white/70 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M5 1 1 5l4 4" />
+    <main class="container mx-auto px-4">
+
+        <section id="default-carousel" class="relative md:w-2/3 sm:w-full mx-auto md:mt-6" data-carousel="static">
+            <!-- Carousel wrapper -->
+            <section class="relative h-48 overflow-hidden rounded-lg lg:h[33rem] sm:h-96">
+                <!-- Item 1 -->
+                <figure class="hidden duration-1000 ease-in-out" data-carousel-item>
+                    <img src="all-mito.jpg"
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </figure>
+                <!-- Item 2 -->
+                <figure class="hidden duration-1000 ease-in-out" data-carousel-item>
+                    <img src="deadpool.jpg"
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </figure>
+                <!-- Item 3 -->
+                <figure class="hidden duration-1000 ease-in-out" data-carousel-item>
+                    <img src="picture-in-picture.jpg"
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </figure>
+                <!-- Item 4 -->
+                <figure class="hidden duration-1000 ease-in-out" data-carousel-item>
+                    <img src="red-mask.jpg"
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </figure>
+                <!-- Item 5 -->
+                <figure class="hidden duration-1000 ease-in-out" data-carousel-item>
+                    <img src="luffy.jpg"
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </figure>
+            </section>
+
+            <button (click)="scrollToTop()"
+                class="fixed bottom-6 right-6 bg-Dykan-pri-500 text-white rounded-full shadow-lg hover:bg-Dykan-pri-600 transition-opacity duration-300 p-2 animate-"
+                [ngClass]="{'opacity-100': showButton, 'opacity-0': !showButton}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
                 </svg>
-                <span class="sr-only">Previous</span>
-            </span>
-        </button>
-        <button type="button"
-            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-next>
-            <span
-                class="inline-flex items-center justify-center w-10 h-10 rounded-full dark:bg-gray-800/30  dark:group-hover:bg-gray-800/60 group-focus:ring-4  dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-4 h-4 text-white/70 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m1 9 4-4-4-4" />
-                </svg>
-                <span class="sr-only">Next</span>
-            </span>
-        </button>
-    </div>
-    <section>
-        <h1 class="bg-Dykan-pri-500 text-white text-3xl mt-4 p-2">Populate</h1>
-        <swiper-container class="mySwiper w-full mt-3 h-60 md:h-72 xl:h-80 px-2" init="false">
-            <swiper-slide class="object-cover bg-slate-300 w-52 rounded-xl">Slide 1</swiper-slide>
-            <swiper-slide class="object-cover bg-slate-300 w-52 rounded-xl">Slide 2</swiper-slide>
-            <swiper-slide class="object-cover bg-slate-300 w-52 rounded-xl">Slide 3</swiper-slide>
-            <swiper-slide class="object-cover bg-slate-300 w-52 rounded-xl">Slide 4</swiper-slide>
-            <swiper-slide class="object-cover bg-slate-300 w-52 rounded-xl">Slide 5</swiper-slide>
-            <swiper-slide class="object-cover bg-slate-300 w-52 rounded-xl">Slide 6</swiper-slide>
-            <swiper-slide class="object-cover bg-slate-300 w-52 rounded-xl">Slide 7</swiper-slide>
-            <swiper-slide class="object-cover bg-slate-300 w-52 rounded-xl">Slide 8</swiper-slide>
-            <swiper-slide class="object-cover bg-slate-300 w-50 rounded-xl">Slide 9</swiper-slide>
-        </swiper-container>
-    </section>
-    <section>
-        <h1 class="bg-Dykan-pri-500 text-white text-3xl mt-4 p-2">Last Chapters</h1>
-    </section>
+
+            </button>
+            <!-- Slider controls -->
+            <button type="button"
+                class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                data-carousel-prev>
+                <span
+                    class="inline-flex items-center justify-center w-10 h-10 rounded-full dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 group-focus:ring-4 dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white/70 rtl:rotate-180" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 1 1 5l4 4" />
+                    </svg>
+                    <span class="sr-only">Previous</span>
+                </span>
+            </button>
+            <button type="button"
+                class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                data-carousel-next>
+                <span
+                    class="inline-flex items-center justify-center w-10 h-10 rounded-full dark:bg-gray-800/30  dark:group-hover:bg-gray-800/60 group-focus:ring-4  dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white/70 rtl:rotate-180" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 9 4-4-4-4" />
+                    </svg>
+                    <span class="sr-only">Next</span>
+                </span>
+            </button>
+        </section>
+        <!-- Swiper Section -->
+        <section>
+            <h2 class="bg-Dykan-pri-500 text-white text-3xl mt-4 p-2 lg:rounded-lg">Populate</h2>
+            <swiper-container
+                style="--swiper-scrollbar-drag-bg-color: #64218C; --swiper-scrollbar-size: 8px; --swiper-scrollbar-bottom: 0;"
+                class="mySwiper w-full mt-3" init="false" scrollbar="true">
+                <swiper-slide *ngFor="let item of repeatCount" class="object-cover bg-slate-300 rounded-lg">
+                    <app-card />
+                </swiper-slide>
+            </swiper-container>
+        </section>
+        <!-- Sección de capítulos -->
+        <section class="mx-1 md:mx-0 flex flex-col gap-6">
+            <section>
+                <h2 class="bg-Dykan-pri-500 text-white text-3xl mt-4 p-2 lg:rounded-lg">Last Chapters</h2>
+            </section>
+            <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 md:gap-4">
+                <app-card *ngFor="let item of repeatCount" />
+            </section>
+        </section>
+
+    </main>
 </body>
 
 </html>

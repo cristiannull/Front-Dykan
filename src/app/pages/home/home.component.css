@@ -1,0 +1,11 @@
+.swiper-scrollbar {
+  height: 16px; /* Grosor de la scrollbar */
+  margin-top: 20px; /* Desplazamiento de la scrollbar hacia abajo */
+  background-color: rgba(128, 0, 128, 0.1); /* Fondo en morado claro */
+}
+
+.swiper-scrollbar-drag {
+  background-color: #800080; /* Color morado para la barra de desplazamiento */
+  height: 100%; /* Asegurarse que ocupe el 100% de la scrollbar */
+  border-radius: 8px; /* Bordes redondeados para la barra */
+}
