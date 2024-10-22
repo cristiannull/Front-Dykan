@@ -1,18 +1,35 @@
 import { CommonModule, NgClass } from '@angular/common';
 import { Component, HostListener, signal } from '@angular/core';
+import { Router, RouterLink, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [CommonModule, NgClass],
+  imports: [CommonModule, NgClass, RouterLink],
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent {
+  constructor(public router: Router) {}
+
+  currentRoute: string = '';
+
   isMenuOpen = signal(false);
   isProfileMenuOpen = signal(false);
   isDesktopView = signal(window.innerWidth >= 768);
   isMobileView = signal(window.innerWidth < 768);
+
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = this.router.url;
+      }
+    });
+  }
+
+  isActive(route: string): boolean {
+    return this.router.url === route;
+  }
 
   toggleMenu() {
     this.isMenuOpen.update((value) => !value);
@@ -43,5 +60,10 @@ export class NavBarComponent {
     const windowWidth = (event.target as Window).innerWidth;
     this.isDesktopView.set(windowWidth >= 768);
     this.isMobileView.set(windowWidth < 768);
+
+    if (this.isDesktopView()) {
+      this.isMenuOpen.set(false);
+      this.isProfileMenuOpen.set(false);
+    }
   }
 }

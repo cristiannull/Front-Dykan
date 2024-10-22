@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dykan</title>
+</head>
+
+<body>
+    <app-nav-bar />
+    <main class="container mx-auto px-4">
+        <section>
+            <section class="mx-1 md:mx-0 flex flex-col gap-6">
+                <section>
+                    <h2 class="bg-Dykan-pri-500 text-white text-3xl mt-4 p-2 lg:rounded-lg">Last Chapters</h2>
+                </section>
+                <section>
+                    <article class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 md:gap-4">
+                        <app-card *ngFor="let item of repeatCount" />
+                    </article>
+                </section>
+            </section>
+        </section>
+        <a routerLink="/home"
+            class="flex items-center p-2 text-white hover:bg-Dykan-pri-700 group rounded-lg cursor-pointer">
+            <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-white"
+                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m17 21-5-4-5 4V3.889a.92.92 0 0 1 .244-.629.808.808 0 0 1 .59-.26h8.333a.81.81 0 0 1 .589.26.92.92 0 0 1 .244.63V21Z" />
+            </svg>
+
+
+            <span class="flex-1 ms-3 whitespace-nowrap">Home</span>
+        </a>
+    </main>
+</body>
+
+</html>

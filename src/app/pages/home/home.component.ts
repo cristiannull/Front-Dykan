@@ -9,12 +9,13 @@ import { CommonModule } from '@angular/common';
 import { register, SwiperContainer } from 'swiper/element/bundle';
 import { SwiperOptions } from 'swiper/types';
 import { CardComponent } from '../../components/card/card.component';
+import { RouterLink } from '@angular/router';
 register();
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavBarComponent, CommonModule, CardComponent],
+  imports: [NavBarComponent, CommonModule, CardComponent, RouterLink],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

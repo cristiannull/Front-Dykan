@@ -1,0 +1,19 @@
+a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a.active {
+  color: #65218c;
+  background-color: #b672de;
+  padding: 4px;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.logo,
+.profile-image {
+  min-height: 40px; /* Altura mínima */
+  min-width: 40px; /* Ancho mínimo */
+}

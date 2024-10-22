@@ -5,6 +5,10 @@
 * {
   font-family: "Poppins", ui-sans-serif;
 }
+body {
+  background-color: #202124;
+}
+
 /* Scrollbar para navegadores WebKit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
   width: 8px; /* Ancho de la scrollbar */

@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 
-<body class="dark:bg-Dykan-Fondo-500">
+<body>
     <app-nav-bar />
-    <main class="container mx-auto px-4">
+    <main class="container mx-auto px-4 select-none">
 
         <section id="default-carousel" class="relative md:w-2/3 sm:w-full mx-auto md:mt-6" data-carousel="static">
             <!-- Carousel wrapper -->
@@ -41,9 +41,9 @@
                 </figure>
             </section>
 
-            <button (click)="scrollToTop()"
+            <button
                 class="fixed bottom-6 right-6 bg-Dykan-pri-500 text-white rounded-full shadow-lg hover:bg-Dykan-pri-600 transition-opacity duration-300 p-2 animate-"
-                [ngClass]="{'opacity-100': showButton, 'opacity-0': !showButton}">
+                [ngClass]="{'opacity-100': showButton, 'opacity-0': !showButton}" (click)="scrollToTop()">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
@@ -94,12 +94,60 @@
             <section>
                 <h2 class="bg-Dykan-pri-500 text-white text-3xl mt-4 p-2 lg:rounded-lg">Last Chapters</h2>
             </section>
-            <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 md:gap-4">
-                <app-card *ngFor="let item of repeatCount" />
+            <section>
+                <article class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 md:gap-4">
+                    <app-card *ngFor="let item of repeatCount" />
+                </article>
             </section>
         </section>
-
     </main>
+    <footer class="container mx-auto px-4 mt-5 mb-5">
+        <section>
+            <ul class="font-medium flex items-center justify-center ">
+                <li>
+                    <a routerLink="/library"
+                        class="flex items-center p-2 text-white  hover:bg-Dykan-pri-700 group rounded-lg cursor-pointer">
+                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75  group-hover:text-white "
+                            aria-hidden="true" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 19V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v13H7a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M9 3v14m7 0v4" />
+                        </svg>
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Librery</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/favorite"
+                        class="flex items-center p-2 text-white hover:bg-Dykan-pri-700 group rounded-lg cursor-pointer">
+                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                            viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m17 21-5-4-5 4V3.889a.92.92 0 0 1 .244-.629.808.808 0 0 1 .59-.26h8.333a.81.81 0 0 1 .589.26.92.92 0 0 1 .244.63V21Z" />
+                        </svg>
+
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Favorite</span>
+                    </a>
+                </li>
+            </ul>
+            <section class="flex justify-center items-center">
+                <section>
+                    <p class="container mx-auto px-4 text-gray-400 mt-5">
+                        Dykan es un sitio donde leer tus series Coreanas y Chinas traducidas al español por
+                        muchos
+                        grupos que lo conforman. Este sitio está protegido por reCAPTCHA. Se aplican la Política de
+                        privacidad y
+                        las
+                        Condiciones del servicio de Google.</p>
+                </section>
+                <section class="mx-24 ">
+                    <img src="Logo.png" alt="Logo" class="h-28 rotate-6 logo">
+                </section>
+            </section>
+        </section>
+    </footer>
 </body>
 
 </html>
