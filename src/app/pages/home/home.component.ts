@@ -10,12 +10,19 @@ import { register, SwiperContainer } from 'swiper/element/bundle';
 import { SwiperOptions } from 'swiper/types';
 import { CardComponent } from '../../components/card/card.component';
 import { RouterLink } from '@angular/router';
+import { FooterComponent } from '../../components/footer/footer.component';
 register();
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavBarComponent, CommonModule, CardComponent, RouterLink],
+  imports: [
+    NavBarComponent,
+    CommonModule,
+    CardComponent,
+    RouterLink,
+    FooterComponent,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -23,32 +30,14 @@ register();
 export class HomeComponent {
   repeatCount = new Array(8);
 
-  swiperElement = signal<SwiperContainer | null>(null);
-  ngOnInit(): void {
-    const swiperElemConstructor = document.querySelector('swiper-container');
-    const swiperOptions: SwiperOptions = {
-      slidesPerView: 1,
-      grabCursor: true,
-      spaceBetween: 20,
-      breakpoints: {
-        250: {
-          slidesPerView: 2,
-        },
-        400: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 4,
-        },
-        1279: {
-          slidesPerView: 5,
-        },
-      },
-    };
-    Object.assign(swiperElemConstructor!, swiperOptions);
-    this.swiperElement.set(swiperElemConstructor as SwiperContainer);
-    this.swiperElement()?.initialize();
-  }
+  images: string[] = [
+    'all-mito.jpg',
+    'deadpool.jpg',
+    'luffy.jpg',
+    'picture-in-picture.jpg',
+    'red-mask.jpg',
+  ];
+
   showButton = false;
 
   @HostListener('window:scroll', [])

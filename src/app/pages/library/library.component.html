@@ -9,11 +9,52 @@
 
 <body>
     <app-nav-bar />
-    <main class="container mx-auto px-4">
+    <main class="container mx-auto mt-5">
         <section>
             <section class="mx-1 md:mx-0 flex flex-col gap-6">
                 <section>
-                    <h2 class="bg-Dykan-pri-500 text-white text-3xl mt-4 p-2 lg:rounded-lg">Last Chapters</h2>
+                    <h2 class="bg-Dykan-pri-500 text-white text-3xl sm:mt-4 p-2 lg:rounded-lg">Library</h2>
+                </section>
+                <section class="flex flex-col">
+                    <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-7">
+                        <select name="" id="" class="rounded-lg">
+                            @for (option of repeatCount; track repeatCount){
+                            <option value="">
+                                option
+                            </option>
+                            }
+                        </select>
+                        <select name="" id="" class="rounded-lg">
+                            @for (option of repeatCount; track repeatCount){
+                            <option value="">
+                                option
+                            </option>
+                            }
+                        </select>
+                        <select name="" id="" class="rounded-lg">
+                            @for (option of repeatCount; track repeatCount){
+                            <option value="">
+                                option
+                            </option>
+                            }
+                        </select>
+                        <select name="" id="" class="rounded-lg">
+                            @for (option of repeatCount; track repeatCount){
+                            <option value="">
+                                option
+                            </option>
+                            }
+                        </select>
+                    </section>
+                    <button type="submit"
+                        class="bg-Dykan-pri-500 text-[#cccccc] px-3 py-1 rounded-md mx-auto mt-3 flex items-center justify-center hover:text-Dykan-pri-500 hover:bg-Dykan-pri-50 p-1 hover:shadow-lg hover:shadow-black">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+                        </svg>
+                        Filter
+                    </button>
                 </section>
                 <section>
                     <article class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 md:gap-4">
@@ -22,19 +63,8 @@
                 </section>
             </section>
         </section>
-        <a routerLink="/home"
-            class="flex items-center p-2 text-white hover:bg-Dykan-pri-700 group rounded-lg cursor-pointer">
-            <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-white"
-                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="m17 21-5-4-5 4V3.889a.92.92 0 0 1 .244-.629.808.808 0 0 1 .59-.26h8.333a.81.81 0 0 1 .589.26.92.92 0 0 1 .244.63V21Z" />
-            </svg>
-
-
-            <span class="flex-1 ms-3 whitespace-nowrap">Home</span>
-        </a>
     </main>
+    <app-footer />
 </body>
 
 </html>

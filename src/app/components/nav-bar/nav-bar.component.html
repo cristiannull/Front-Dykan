@@ -11,13 +11,13 @@
         <!-- Desktop menu -->
         <ul class="hidden md:flex space-x-8">
             <li><a routerLink="/home"
-                    [ngClass]="{'active': isActive('/home'), 'hover:text-Dykan-pri-500 hover:bg-Dykan-pri-50 p-1 rounded-sm hover:shadow-lg hover:shadow-black focus:bg ': !isActive('/home')}"
+                    [ngClass]="{'active': isActive('/home'), 'hover:text-Dykan-pri-500 hover:bg-Dykan-pri-50 p-1 rounded-sm hover:shadow-lg hover:shadow-black': !isActive('/home')}"
                     class="block">Home</a></li>
             <li><a routerLink="/library"
-                    [ngClass]="{'active': isActive('/library'), 'hover:text-Dykan-pri-500 hover:bg-Dykan-pri-50 p-1 rounded-sm hover:shadow-lg hover:shadow-black focus:bg': !isActive('/library')}"
+                    [ngClass]="{'active': isActive('/library'), 'hover:text-Dykan-pri-500 hover:bg-Dykan-pri-50 p-1 rounded-sm hover:shadow-lg hover:shadow-black': !isActive('/library')}"
                     class="block">Library</a></li>
             <li><a routerLInk="/favorite"
-                    [ngClass]="{'active': isActive('/favorite'), 'hover:text-Dykan-pri-500 hover:bg-Dykan-pri-50 p-1 rounded-sm hover:shadow-lg hover:shadow-black focus:bg': !isActive('/favorite')}"
+                    [ngClass]="{'active': isActive('/favorite'), 'hover:text-Dykan-pri-500 hover:bg-Dykan-pri-50 p-1 rounded-sm hover:shadow-lg hover:shadow-black': !isActive('/favorite')}"
                     class="block cursor-pointer">Favorite</a></li>
         </ul>
 
@@ -46,10 +46,10 @@
                 <ul [ngClass]="{'opacity-100 translate-y-0 visible': isProfileMenuOpen(), 'opacity-0 -translate-y-2 invisible': !isProfileMenuOpen()}"
                     id="profile-menu"
                     class="z-50 absolute right-0 mt-12 w-48 bg-Dykan-pri-500 rounded-md shadow-lg py-2 text-white transition-all duration-300  ease-in-out opacity-0 invisible transform -translate-y-2">
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Perfil</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Configuración</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Favoritos</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Cerrar sesión</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Profile</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Configuration</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Favorite</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Log out</a></li>
                 </ul>
             </div>
         </div>
@@ -60,8 +60,6 @@
             [ngClass]="{'opacity-100 translate-y-0 visible': isMobileView(), 'opacity-0 translate-y-2 invisible': !isMobileView()}"
             class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none transition-all duration-300 ease-in-out opacity-0 invisible transform translate-y-2" />
     </div>
-
-    <!-- Dropdown menu on mobile -->
 
     <!-- drawer component -->
     <div id="drawer-navigation"
