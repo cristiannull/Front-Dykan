@@ -10,29 +10,19 @@ import { Router, RouterLink, NavigationEnd } from '@angular/router';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent {
-  constructor(public router: Router) {}
-
   currentRoute: string = '';
 
   isMenuOpen = signal(false);
   isProfileMenuOpen = signal(false);
-  isDesktopView = signal(window.innerWidth >= 768);
-  isMobileView = signal(window.innerWidth < 768);
 
-  ngOnInit(): void {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.currentRoute = this.router.url;
-      }
-    });
+  constructor(public router: Router) {}
+
+  toggleMenu() {
+    this.isMenuOpen.update((value) => !value);
   }
 
   isActive(route: string): boolean {
     return this.router.url === route;
-  }
-
-  toggleMenu() {
-    this.isMenuOpen.update((value) => !value);
   }
 
   toggleProfileMenu() {
@@ -42,28 +32,17 @@ export class NavBarComponent {
   @HostListener('document:click', ['$event'])
   closeMenus(event: Event) {
     const target = event.target as HTMLElement;
-    const isProfileButton = target.closest('#profile-button');
+    const isProfileButton = target.closest('#profile-butto');
     const isMenuButton = target.closest('#menu-button');
     const isProfileMenu = target.closest('#profile-menu');
+    const isMenu = target.closest('#menu');
 
     if (!isProfileButton && !isProfileMenu) {
       this.isProfileMenuOpen.set(false);
     }
 
-    if (!isMenuButton && !isProfileMenu) {
+    if (!isMenuButton && !isMenu) {
       this.isMenuOpen.set(false);
-    }
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    const windowWidth = (event.target as Window).innerWidth;
-    this.isDesktopView.set(windowWidth >= 768);
-    this.isMobileView.set(windowWidth < 768);
-
-    if (this.isDesktopView()) {
-      this.isMenuOpen.set(false);
-      this.isProfileMenuOpen.set(false);
     }
   }
 }

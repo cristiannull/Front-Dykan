@@ -12,7 +12,11 @@ a.active {
   border-radius: 2px;
   box-shadow: 0 10px 15px -3px rgb(0, 0, 0);
 }
-
+@media (max-width: 768px) {
+  a.active {
+    margin-bottom: 0.5rem;
+  }
+}
 .logo,
 .profile-image {
   min-height: 40px; /* Altura mínima */

@@ -1,121 +1,97 @@
-<div class="relative select-none">
-    <!-- Desktop Menu -->
-    <nav class="flex justify-between items-center p-4 bg-Dykan-pri-500 text-white">
-        <!-- Logo -->
-        <div class="text-lg font-bold">
-            <a routerLink="/home">
-                <img src="Logo.png" alt="Logo" class="h-8 rotate-6 logo">
-            </a>
-        </div>
-
-        <!-- Desktop menu -->
-        <ul class="hidden md:flex space-x-8">
-            <li><a routerLink="/home"
-                    [ngClass]="{'active': isActive('/home'), 'hover:text-Dykan-pri-500 hover:bg-Dykan-pri-50 p-1 rounded-sm hover:shadow-lg hover:shadow-black': !isActive('/home')}"
-                    class="block">Home</a></li>
-            <li><a routerLink="/library"
-                    [ngClass]="{'active': isActive('/library'), 'hover:text-Dykan-pri-500 hover:bg-Dykan-pri-50 p-1 rounded-sm hover:shadow-lg hover:shadow-black': !isActive('/library')}"
-                    class="block">Library</a></li>
-            <li><a routerLInk="/favorite"
-                    [ngClass]="{'active': isActive('/favorite'), 'hover:text-Dykan-pri-500 hover:bg-Dykan-pri-50 p-1 rounded-sm hover:shadow-lg hover:shadow-black': !isActive('/favorite')}"
-                    class="block cursor-pointer">Favorite</a></li>
-        </ul>
-
-        <div class="flex items-center space-x-2">
-            <!-- Desktop search bar -->
-            <input id="search-bar" type="text" placeholder="Buscar..."
-                [ngClass]="{'opacity-100 translate-y-0 visible': isDesktopView(), 'opacity-0 translate-y-2 invisible': !isDesktopView()}"
-                class="md:opacity-100 w-48 p-2 rounded-lg bg-gray-700 text-white focus:outline-none transition-all duration-300 ease-in-out opacity-0 invisible transform translate-y-2 caret-Dykan-pri-500 focus:ring-2 focus:ring-Dykan-Fondo-200 focus:border-Dykan-Fondo-200 " />
-
-            <!-- Buttons -->
-            <div class="relative flex">
-                <button id="menu-button" class="md:hidden focus:outline-none" (click)="toggleMenu()" type="button"
-                    data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
-                    aria-controls="drawer-navigation">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-10">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+<nav class=" border-gray-200 bg-Dykan-pri-500">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a routerLink="/home" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="Logo.png" class="h-8 rotate-6" alt="Flowbite Logo" />
+        </a>
+        <div class="flex md:order-2">
+            <button type="button" id="menu-button" (click)="toggleMenu()"
+                class="md:hidden text-gray-400 hover:bg-gray-700 rounded-lg text-sm p-2.5 me-1 transition-transform transform hover:scale-105 active:scale-95 active:shadow-inner">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                </svg>
+                <span class="sr-only">Search</span>
+            </button>
+            <div class="relative hidden md:block transition-transform transform hover:scale-105">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                     </svg>
-                </button>
-                <button id="profile-button" class="px-1 flex items-center space-x-2 focus:outline-none profile-image"
-                    (click)="toggleProfileMenu()">
-                    <img src="profile-circle.png" alt="Perfil" class="h-10 w-10 rounded-full">
-                </button>
-                <!-- dropdown menu -->
-                <ul [ngClass]="{'opacity-100 translate-y-0 visible': isProfileMenuOpen(), 'opacity-0 -translate-y-2 invisible': !isProfileMenuOpen()}"
-                    id="profile-menu"
-                    class="z-50 absolute right-0 mt-12 w-48 bg-Dykan-pri-500 rounded-md shadow-lg py-2 text-white transition-all duration-300  ease-in-out opacity-0 invisible transform -translate-y-2">
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Profile</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Configuration</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Favorite</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-600">Log out</a></li>
-                </ul>
+                    <span class="sr-only">Search icon</span>
+                </div>
+                <input type="text" id="search-navbar"
+                    class="block w-full p-2 ps-10 text-sm border rounded-lg focus:border-Dykan-pri-100 focus:ring-Dykan-pri-100 bg-gray-700 placeholder-gray-400 text-white "
+                    placeholder="Search...">
             </div>
+            <button type="button" id="menu-button" (click)="toggleMenu()"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden text-gray-400 hover:bg-gray-700 ">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <button id="profile-butto"
+                class="px-1 flex items-center space-x-2 focus:outline-none profile-image focus:ring-Dykan-pri-100 rounded-fulltransition-transform transform hover:scale-105 active:scale-95 active:shadow-inner"
+                (click)="toggleProfileMenu()">
+                <img src="profile-circle.png" alt="Profile"
+                    class="h-10 w-10 rounded-full hover:ring-2 hover:ring-Dykan-pri-100">
+            </button>
+            <!-- dropdown menu -->
+            <ul [ngClass]="{'opacity-100 translate-y-0 visible': isProfileMenuOpen(), 'opacity-0 -translate-y-2 invisible': !isProfileMenuOpen()}"
+                class="z-50 absolute right-0 md:right-auto md:ml-[10%] mt-12 w-48 bg-Dykan-pri-500 rounded-md shadow-lg py-2 text-white transition-all duration-300  ease-in-out opacity-0 invisible transform -translate-y-2">
+                <li><a routerLink="/home"
+                        class="block px-4 py-2 hover:bg-gray-300 hover:text-Dykan-pri-500 transition-transform transform hover:scale-105 active:scale-95 active:shadow-inner">Profile</a>
+                </li>
+                <li><a routerLink="/library"
+                        class="block px-4 py-2 hover:bg-gray-300 hover:text-Dykan-pri-500 transition-transform transform hover:scale-105 active:scale-95 active:shadow-inner">Configuration</a>
+                </li>
+                <li><a href="#"
+                        class="block px-4 py-2 hover:bg-gray-300 hover:text-Dykan-pri-500 transition-transform transform hover:scale-105 active:scale-95 active:shadow-inner">Favorite</a>
+                </li>
+                <li><a href="#"
+                        class="block px-4 py-2 hover:bg-gray-300 hover:text-Dykan-pri-500 transition-transform transform hover:scale-105 active:scale-95 active:shadow-inner">Log
+                        out</a>
+                </li>
+            </ul>
         </div>
-    </nav>
-    <!-- Search bar on mobile -->
-    <div class="md:hidden mx-4 p-2">
-        <input type="text" placeholder="Buscar..." id="mobile-search-bar" type="text" placeholder="Buscar..."
-            [ngClass]="{'opacity-100 translate-y-0 visible': isMobileView(), 'opacity-0 translate-y-2 invisible': !isMobileView()}"
-            class="w-full p-2 rounded bg-gray-700 text-white focus:outline-none transition-all duration-300 ease-in-out opacity-0 invisible transform translate-y-2" />
-    </div>
-
-    <!-- drawer component -->
-    <div id="drawer-navigation"
-        [ngClass]="{'opacity-100 translate-x-0': isMenuOpen(), 'opacity-0 -translate-x-full': !isMenuOpen()}"
-        class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto w-64 bg-Dykan-Fondo-500 transition-all duration-300 ease-in-out opacity-0 -translate-x-full"
-        tabindex="-1" aria-labelledby="drawer-navigation-label">
-        <h5 id="drawer-navigation-label" class="text-base font-semibold  uppercase text-gray-400">Menu
-        </h5>
-        <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation"
-            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center">
-            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-            </svg>
-            <span class="sr-only">Close menu</span>
-        </button>
-        <div class="py-4 overflow-y-auto">
-            <ul class="space-y-2 font-medium">
+        <div id="menu"
+            [ngClass]="{'opacity-100 max-h-fit transform translate-y-0 visible': isMenuOpen(), 'opacity-0 max-h-0 transform -translate-y-4 invisible ': !isMenuOpen()}"
+            class="transition-all duration-500 ease-in-out overflow-hidden items-center justify-between invisible opacity-0 w-full md:overflow-visible md:translate-y-0 md:flex md:opacity-100 md:visible md:w-auto md:order-1">
+            <div class="relative mt-3 md:hidden">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                    </svg>
+                </div>
+                <input type="text" id="search-navbar"
+                    class="block w-full p-2 ps-10 text-sm border rounded-lg focus:ring-Dykan-pri-100 bg-gray-700 border-dyring-Dykan-pri-100 placeholder-gray-400 text-white focus:border-Dykan-pri-100"
+                    placeholder="Search...">
+            </div>
+            <ul
+                class="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 bg-Dykan-pri-600 md:bg-Dykan-pri-500 border-Dykan-pri-100">
                 <li>
-                    <a routerLink="/home" class="flex items-center p-2 text-white hover:bg-Dykan-pri-700 group">
-                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75  group-hover:text-gray-700"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                        </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Home</span>
-                    </a>
+                    <a routerLink="/home"
+                        [ngClass]="{'active': isActive('/home'), 'hover:text-Dykan-pri-500 hover:bg-Dykan-pri-50 p-1 rounded-sm hover:shadow-lg hover:shadow-black transition-transform transform hover:scale-105 active:scale-95 active:shadow-inner mb-2 md:mb-0': !isActive('/home')}"
+                        class="block">Home</a>
                 </li>
                 <li>
-                    <a routerLink="/library" class="flex items-center p-2 text-white  hover:bg-Dykan-pri-700 group">
-                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75  group-hover:text-gray-700 "
-                            aria-hidden="true" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M5 19V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v13H7a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M9 3v14m7 0v4" />
-                        </svg>
-
-                        <span class="flex-1 ms-3 whitespace-nowrap">Librery</span>
-                    </a>
+                    <a routerLink="/library"
+                        [ngClass]="{'active': isActive('/library'), 'hover:text-Dykan-pri-500 hover:bg-Dykan-pri-50 p-1 rounded-sm hover:shadow-lg hover:shadow-black transition-transform transform hover:scale-105 active:scale-95 active:shadow-inner mb-2 md:mb-0': !isActive('/library')}"
+                        class="block">Library</a>
                 </li>
                 <li>
-                    <a routerLink="/favorite" class="flex items-center p-2 text-white hover:bg-Dykan-pri-700 group">
-                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-700 "
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                            viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m17 21-5-4-5 4V3.889a.92.92 0 0 1 .244-.629.808.808 0 0 1 .59-.26h8.333a.81.81 0 0 1 .589.26.92.92 0 0 1 .244.63V21Z" />
-                        </svg>
-
-
-                        <span class="flex-1 ms-3 whitespace-nowrap">Favorite</span>
-                    </a>
+                    <a routerLink="/favorite"
+                        [ngClass]="{'active': isActive('/favorite'), 'hover:text-Dykan-pri-500 hover:bg-Dykan-pri-50 p-1 rounded-sm hover:shadow-lg hover:shadow-black transition-transform transform hover:scale-105 active:scale-95 active:shadow-inner mb-2 md:mb-0': !isActive('/favorite')}"
+                        class="block">Favorite</a>
                 </li>
             </ul>
         </div>
     </div>
-
-</div>
+</nav>
