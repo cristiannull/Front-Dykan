@@ -1,0 +1,65 @@
+<app-nav-bar />
+<main>
+    <section
+        class="flex flex-col md:flex-row bg-Dykan-pri-600 text-white p-6 rounded-lg shadow-lg max-w-7xl mx-auto mt-10 px-6 py-8 items-center">
+        <!-- Imagen del cómic -->
+        <article class="md:w-1/3 flex flex-col items-center justify-center">
+            <img [src]="comic.imageUrl" alt="Comic Image" class="rounded-lg shadow-md w-full md:w-60">
+
+            <!-- Botones de acción debajo de la imagen -->
+            <nav class="flex space-x-2 mt-4">
+                <button (click)="likeComic()"
+                    class="bg-Dykan-pri-400 hover:bg-Dykan-pri-500 text-white font-bold py-1 px-3 rounded transition-transform transform hover:scale-110 active:scale-90 text-sm">👍</button>
+                <button (click)="dislikeComic()"
+                    class="bg-Dykan-pri-400 hover:bg-Dykan-pri-500 text-white font-bold py-1 px-3 rounded transition-transform transform hover:scale-110 active:scale-90 text-sm">👎</button>
+                <button (click)="addToFavorites()"
+                    class="bg-Dykan-pri-400 hover:bg-Dykan-pri-500 text-white font-bold py-1 px-3 rounded transition-transform transform hover:scale-110 active:scale-90 text-sm">⭐</button>
+            </nav>
+        </article>
+
+        <!-- Información del cómic -->
+        <article class="md:w-2/3 flex flex-col justify-center p-4 h-full text-center">
+            <header class="flex flex-col items-center space-y-2">
+                <h2 class="text-2xl font-bold w-full break-words">{{ comic.title }}</h2>
+                <p class="text-gray-400">{{ comic.year }}</p>
+            </header>
+
+            <!-- Sinopsis -->
+            <p class="text-gray-300 text-justify my-6">{{ comic.synopsis }}</p>
+
+            <!-- Géneros -->
+            <section class="flex flex-col items-center space-y-2">
+                <h3 class="text-lg font-semibold">Géneros:</h3>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span *ngFor="let genre of comic.genres"
+                        class="bg-Dykan-pri-700 px-3 py-1 rounded-full text-white text-sm">{{ genre }}</span>
+                </div>
+            </section>
+
+            <!-- Botón para ir al primer capítulo -->
+            <button (click)="goToFirstChapter()"
+                class="mt-6 bg-Dykan-pri-400 hover:bg-Dykan-pri-500 text-white font-bold py-2 px-8 rounded transition-transform transform hover:scale-110 active:scale-90 text-sm w-1/2 mx-auto">Primer
+                Capitulo</button>
+        </article>
+    </section>
+
+    <!-- Sección de capítulos -->
+    <section class="max-w-7xl mx-auto mt-10 p-6 bg-Dykan-pri-600 rounded-lg shadow-lg text-white">
+        <h2 class="text-2xl font-bold mb-4 text-center">Capítulos</h2>
+        <ul class="space-y-4">
+            <li *ngFor="let chapter of comic.chapters.slice().reverse()"
+                class="p-4 bg-Dykan-pri-700 rounded-lg flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-semibold">{{ chapter.title }}</h3>
+                    <p class="text-gray-300 text-sm">Publicado el: {{ chapter.date }}</p>
+                </div>
+                <button (click)="readAndGoToChapter(chapter)"
+                    [ngClass]="{'bg-gray-500': chapter.read, 'bg-Dykan-pri-500 hover:bg-Dykan-pri-600': !chapter.read}"
+                    class="text-white font-bold py-1 px-3 rounded transition-transform transform hover:scale-110 active:scale-90 text-sm">
+                    {{ chapter.read ? '✔ Visto' : 'Leer' }}
+                </button>
+            </li>
+        </ul>
+    </section>
+
+</main>

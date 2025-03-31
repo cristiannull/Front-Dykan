@@ -1,28 +1,27 @@
 <figure class="relative rounded-md group overflow-hidden">
-    <!-- Enlace e imagen -->
-    <a href="/series/comic-ranker-dormido" class="block rounded-md sf-ripple-container" title="Ranker Dormido"
+
+    <a routerLink="/serie" class="block rounded-md sf-ripple-container" title="Ranker Dormido"
         aria-label="Ranker Dormido">
         <div class="relative w-full md:h-auto object-cover rounded-md overflow-hidden">
-            <img src="https://dashboard.zonaolympus.com/storage/comics/covers/743/01-xl.webp" alt="Ranker Dormido"
-                loading="lazy"
+            <img src="https://dashboard.olympusbiblioteca.com/storage/comics/covers/1407/30-xl.webp"
+                alt="Ranker Dormido" loading="lazy"
                 class="object-cover rounded-md w-full h-full transition-transform duration-500 group-hover:scale-110">
         </div>
     </a>
-    <!-- Gradiente y contenido superpuesto -->
+
     <div
         class="pointer-events-none absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-gray-800/90 rounded-md">
     </div>
 
-    <!-- Contenido principal (Título y Capítulos) -->
+
     <div class="absolute bottom-0 w-full pt-2 pb-1 px-1 rounded-md text-center flex flex-col gap-2">
-        <a href="/series/comic-ranker-dormido" class="rounded-md sf-ripple-container" title="Ranker Dormido"
+        <a routerLink="/series" class="rounded-md sf-ripple-container" title="Ranker Dormido"
             aria-label="Ranker Dormido">
             <figcaption
                 class="font-header text-base md:text-xl font-medium md:font-normal text-white overflow-hidden whitespace-nowrap overflow-ellipsis">
                 Ranker Dormido</figcaption>
         </a>
 
-        <!-- Capítulos (siempre visibles) -->
         <div class="flex gap-1 text-xs md:text-sm">
             <a href="/capitulo/101696/comic-ranker-dormido"
                 class="flex items-center relative w-full rounded sf-ripple-container">
@@ -56,12 +55,11 @@
         </div>
     </div>
 
-    <!-- Hover content (Imagen pequeña y descripción) -->
     <div
         class="absolute inset-0 w-full h-full bg-black bg-opacity-80 text-white opacity-0 invisible transition-all duration-500 ease-in-out flex flex-col items-center justify-center text-center rounded-md group-hover:opacity-100 group-hover:visible">
-        <a href="#">
-            <img src="https://dashboard.zonaolympus.com/storage/comics/covers/743/01-xl.webp" alt="Ranker Dormido"
-                class="max-w-[100px] mb-2.5 rounded-md">
+        <a routerLink="/serie">
+            <img src="https://dashboard.olympusbiblioteca.com/storage/comics/covers/1407/30-xl.webp"
+                alt="Ranker Dormido" class="max-w-[100px] mb-2.5 rounded-md">
         </a>
         <p class="mb-2.5 text-sm px-4 pb-4">"Ranker Dormido" es una historia llena de acción y aventuras,
             donde un joven descubre sus habilidades dormidas y lucha para proteger su mundo.</p>

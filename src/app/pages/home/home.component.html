@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" class="dark">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +6,20 @@
 
 <body>
     <app-nav-bar />
-    <main class="container mx-auto select-none">
 
-        <section class="relative md:w-2/3 sm:w-full mx-auto md:mt-6" data-carousel="static">
-            <!-- Carousel wrapper -->
+    <main class="container mx-auto select-none">
+        <!-- Swiper Principal -->
+        <section class="relative w-full md:w-2/3 mx-auto md:mt-6" data-carousel="static">
             <swiper-container style="--swiper-navigation-color: white" loop="true" slides-per-view="1"
-                grab-cursor="true" navigation="true" class="mySwiper px-4 w-full mt-3 rounded-lg" navigarion="true">
-                <swiper-slide *ngFor="let image of images" class="object-cover bg-slate-300 rounded-lg">
+                grab-cursor="true" navigation="true" class="mySwiper px-4 w-full mt-3 rounded-lg">
+                <swiper-slide *ngFor="let image of images" class="bg-slate-300 rounded-lg">
                     <img [src]="image" alt="Image">
                 </swiper-slide>
             </swiper-container>
-            <button
-                class="fixed bottom-6 right-6 bg-Dykan-pri-500 text-white rounded-full shadow-lg hover:bg-Dykan-pri-600 transition-opacity duration-300 p-2 animate-bounce z-50"
+
+            <!-- Botón de volver arriba -->
+            <button class="fixed bottom-6 right-6 bg-Dykan-pri-500 text-white rounded-full shadow-lg 
+                    hover:bg-Dykan-pri-600 transition-opacity duration-300 p-2 animate-bounce z-50"
                 [ngClass]="{'opacity-100': showButton, 'opacity-0': !showButton}" (click)="scrollToTop()">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
@@ -28,7 +27,8 @@
                 </svg>
             </button>
         </section>
-        <!-- Swiper Section -->
+
+        <!-- Sección Populate -->
         <section>
             <h2 class="bg-Dykan-pri-500 text-white text-3xl mt-4 p-2 lg:rounded-lg">Populate</h2>
             <swiper-container grab-cursor="true"
@@ -36,24 +36,23 @@
                 class="mySwiper w-full mt-3"
                 breakpoints='{"250": {"slidesPerView": 2},"400": {"slidesPerView": 2},"1024": {"slidesPerView": 4}, "1279":{"slidesPerView":5}}'
                 space-between="20" scrollbar="true">
-                <swiper-slide *ngFor="let item of repeatCount" class="object-cover bg-slate-300 rounded-lg">
+                <swiper-slide *ngFor="let item of repeatCount" class="bg-slate-300 rounded-lg">
                     <app-card />
                 </swiper-slide>
             </swiper-container>
         </section>
+
         <!-- Sección de capítulos -->
         <section class="mx-1 md:mx-0 flex flex-col gap-6">
-            <section>
+            <header>
                 <h2 class="bg-Dykan-pri-500 text-white text-3xl mt-4 p-2 lg:rounded-lg">Last Chapters</h2>
-            </section>
-            <section>
-                <article class=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 md:gap-4">
-                    <app-card *ngFor="let item of repeatCount" />
-                </article>
-            </section>
+            </header>
+
+            <article class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 md:gap-4">
+                <app-card *ngFor="let item of repeatCount" />
+            </article>
         </section>
     </main>
+
     <app-footer />
 </body>
-
-</html>

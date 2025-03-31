@@ -16,13 +16,7 @@ register();
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    NavBarComponent,
-    CommonModule,
-    CardComponent,
-    RouterLink,
-    FooterComponent,
-  ],
+  imports: [NavBarComponent, CommonModule, CardComponent, FooterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
