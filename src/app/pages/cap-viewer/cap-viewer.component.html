@@ -33,7 +33,6 @@
             <!-- Skeleton mientras carga -->
             <div *ngIf="!loadedImages.has(i)" class="absolute inset-0 skeleton-loader rounded-md"></div>
 
-            <!-- Imagen real -->
             <img *ngIf="visibleImages.includes(i)"
                 class="w-full h-auto object-contain transition-opacity duration-1000 opacity-0"
                 src="https://dashboard.olympusbiblioteca.com/storage/comics/94/110425/01_01.webp"
