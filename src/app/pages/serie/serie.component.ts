@@ -21,7 +21,7 @@ interface Chapter {
 export class SerieComponent implements OnInit {
   comic = {
     title: 'Me hice cargo de la Academia con un solo cuchillo de sashimi',
-    year: 2018,
+    year: '(2018)',
     imageUrl:
       'https://dashboard.olympusbiblioteca.com/storage/comics/covers/1407/30-xl.webp',
     synopsis:
@@ -30,24 +30,24 @@ export class SerieComponent implements OnInit {
     chapters: [
       {
         id: 1,
-        title: 'Capítulo 1',
+        title: 'Capítulo 0',
         date: '2024-03-01',
         read: false,
-        url: 'https://olympusbiblioteca.com/capitulo/99600/comic-me-hice-cargo-de-la-academia-con-un-solo-cuchillo-de-sashimi',
+        url: '/cap-view',
       },
       {
         id: 2,
-        title: 'Capítulo 2',
+        title: 'Capítulo 1',
         date: '2024-03-05',
         read: false,
-        url: '/capitulo/2',
+        url: 'https://olympusbiblioteca.com/capitulo/99612/comic-me-hice-cargo-de-la-academia-con-un-solo-cuchillo-de-sashimi',
       },
       {
         id: 3,
-        title: 'Capítulo 3',
+        title: 'Capítulo 2',
         date: '2024-03-10',
         read: false,
-        url: '/capitulo/3',
+        url: 'https://olympusbiblioteca.com/capitulo/99668/comic-me-hice-cargo-de-la-academia-con-un-solo-cuchillo-de-sashimi',
       },
     ],
   };

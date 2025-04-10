@@ -1,15 +1,8 @@
-import {
-  Component,
-  CUSTOM_ELEMENTS_SCHEMA,
-  signal,
-  HostListener,
-} from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, HostListener } from '@angular/core';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 import { CommonModule } from '@angular/common';
-import { register, SwiperContainer } from 'swiper/element/bundle';
-import { SwiperOptions } from 'swiper/types';
+import { register } from 'swiper/element/bundle';
 import { CardComponent } from '../../components/card/card.component';
-import { RouterLink } from '@angular/router';
 import { FooterComponent } from '../../components/footer/footer.component';
 register();
 
